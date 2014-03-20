@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pirateParse Demo</title>
+	<script type="text/javascript" src="pirateParse.js"></script>
+</head>
+
+<body>
+	<h3>Movie Demo</h3>
+	<input id="movieInput" type="text" placeholder="PirateBay torrent title" size="150">
+	<button id="movieButton" type="button" onclick="alertTest()">Try it!</button>
+
+
+	<script type="text/javascript">
+
+		function alertTest(){
+			var titleToTest = document.getElementById("movieInput").value;
+			var newMovie = new pirateMovie(titleToTest);
+			var titleToAlert = newMovie.setRealTitle();
+			alert(titleToAlert);	
+		}
+
+	</script>
+</body>
+</html>
