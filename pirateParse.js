@@ -124,4 +124,29 @@ function pirateMovie(strTitle){
 		/* Return the real title, if you want to use it now */
 		return this.strRealTitle;
 	}
+
+	/* FUCNTION NAM: setFormat */
+	/* FUNCTION DEF: Get the format (1080p or 720p) from the original title and set it to its attribute */
+	/* FUNCTION PAR: None */
+	/* FUCNTION RET: Format */
+
+	this.setFormat = function(){
+
+		/* Test if the original title contains 720p|P */
+		if(this.strOriginalTitle.indexOf('720p') != -1 || this.strOriginalTitle.indexOf('720P') != -1){
+			/* If found, set the format and return it */
+			this.strFormat = '720p';
+			return this.strFormat;	
+		}
+
+		/* Test if the original title contains 1080p|P */
+		if(this.strOriginalTitle.indexOf('1080p') != -1 || this.strOriginalTitle.indexOf('1080P') != -1){
+			/* If found, set the format and return it */
+			this.strFormat = '1080p';
+			return this.strFormat;	
+		}
+
+		/* Return the ogirinal (most likely NA) format if nothing is found */
+		return this.strFormat;		
+	}
 }
