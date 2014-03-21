@@ -70,9 +70,9 @@ function pirateMovie(strTitle){
 		"PublicHD", "YiFy"
 		)
 
-	/************/
-	/* FUNCTION */
-	/************/
+	/*************/
+	/* FUNCTIONS */
+	/*************/
 
 	/* FUCNTION NAM: setRealTitle */
 	/* FUNCTION DEF: Crop useless crap of the title */
@@ -101,6 +101,22 @@ function pirateMovie(strTitle){
 		strTitleToCrop = strTitleToCrop.split('.').join(' ');
 		/* Trim extra space at the end */
 		strTitleToCrop = strTitleToCrop.trim();
+
+		/* Split the array, again, to add the parenteses if they are missing for the year */
+		var arrSplitedTitleToCrop = strTitleToCrop.split(' ');
+
+		/* Get the last index of the array since it's used 4 times */
+		var intLastIndexOfSplit = arrSplitedTitleToCrop.length-1;
+
+		/* Test if the last index of the array is  four digits */
+		if(arrSplitedTitleToCrop[intLastIndexOfSplit].match(new RegExp('^\\d{4}$'))){
+			/* Add the actual parenteses on the last index of the array */
+			arrSplitedTitleToCrop[intLastIndexOfSplit] = '('+arrSplitedTitleToCrop[intLastIndexOfSplit]+')';	
+		}
+		
+		/* Rejoin the array togheter, like an old couple, yay */
+		strTitleToCrop = arrSplitedTitleToCrop.join(' ');
+
 
 		/* Set the real title to the newly processed string */
 		this.strRealTitle = strTitleToCrop;
