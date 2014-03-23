@@ -19,6 +19,14 @@
 	<input id="movieInputYear" type="text" placeholder="PirateBay torrent title" size="150">
 	<button id="movieButtonYear" type="button" onclick="alertYearTest()">Try it!</button>
 
+	<p>Set Release Group</p>
+	<input id="movieInputRG" type="text" placeholder="PirateBay torrent title" size="150">
+	<button id="movieButtonRG" type="button" onclick="alertRGTest()">Try it!</button>
+
+	<p>Set Source</p>
+	<input id="movieInputSource" type="text" placeholder="PirateBay torrent title" size="150">
+	<button id="movieButtonSource" type="button" onclick="alertSourceTest()">Try it!</button>
+
 
 	<script type="text/javascript">
 
@@ -34,7 +42,6 @@
 			var newMovie = new pirateMovie(titleToTest);
 			var formatToAlert = newMovie.setFormat();
 			alert(formatToAlert);	
-
 		}
 
 		function alertYearTest(){
@@ -42,7 +49,20 @@
 			var newMovie = new pirateMovie(titleToTest);
 			var yearToAlert = newMovie.setYear();
 			alert(yearToAlert);	
+		}
 
+		function alertRGTest(){
+			var titleToTest = document.getElementById("movieInputRG").value;
+			var newMovie = new pirateMovie(titleToTest);
+			var RGToAlert = newMovie.setReleaseGroup();
+			alert(RGToAlert);	
+		}
+
+		function alertSourceTest(){
+			var titleToTest = document.getElementById("movieInputSource").value;
+			var newMovie = new pirateMovie(titleToTest);
+			var SrouceToAlert = newMovie.setSource();
+			alert(SrouceToAlert);	
 		}
 
 	</script>

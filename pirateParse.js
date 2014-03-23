@@ -70,6 +70,10 @@ function pirateMovie(strTitle){
 		"PublicHD", "YiFy"
 		)
 
+	this.arrSourceBluray = new Array("brrip", "bluray");
+	this.arrSourceWeb = new Array("web-dl", "webdl");
+	this.arrReleaseGroup = new Array("PublicHD", "YIFY", "JYK", "Hon3y");
+
 	/*************/
 	/* FUNCTIONS */
 	/*************/
@@ -162,4 +166,50 @@ function pirateMovie(strTitle){
 
 		return this.strYear;
 	}
+
+	/* FUCNTION NAM: setReleaseGroup */
+	/* FUNCTION DEF: Get the release group from the original title and set it to its attribute */
+	/* FUNCTION PAR: None */
+	/* FUCNTION RET: ReleaseGroup */
+
+	this.setReleaseGroup = function(){
+		/* Iterate the array that containt common release group */
+		for (var i = 0; i < this.arrReleaseGroup.length; ++i){
+			/* If index is defined (!= -1) */
+			if(this.strOriginalTitle.indexOf(this.arrReleaseGroup[i]) != -1){
+				/* Set the release group if found */
+				this.strRealeaseGroup = this.arrReleaseGroup[i];
+			}
+		}
+
+		return this.strRealeaseGroup;
+	}
+
+	/* FUCNTION NAM: setSource */
+	/* FUNCTION DEF: Get the source from the original title and set it to its attribute */
+	/* FUNCTION PAR: None */
+	/* FUCNTION RET: Source */
+
+	this.setSource = function(){
+		/* Lowercase the original title */
+		var strLowerOriginalTitle = this.strOriginalTitle.toLowerCase();
+		/* Iterate the array that containt common release group */
+		for (var i = 0; i < this.arrSourceBluray.length; ++i){
+			/* If index is defined (!= -1) */
+			if(strLowerOriginalTitle.indexOf(this.arrSourceBluray[i]) != -1){
+				/* Set the source if found */
+				this.strSource = "BluRay";
+			}
+		}
+
+		for (var i = 0; i < this.arrSourceWeb.length; ++i){
+			/* If index is defined (!= -1) */
+			if(strLowerOriginalTitle.indexOf(this.arrSourceWeb[i]) != -1){
+				/* Set the source if found */
+				this.strSource = "Web";
+			}
+		}
+
+		return this.strSource;
+	}	
 }
