@@ -11,9 +11,13 @@
 	<input id="movieInputTitle" type="text" placeholder="PirateBay torrent title" size="150">
 	<button id="movieButtonTitle" type="button" onclick="alertTitleTest()">Try it!</button>
 
-	<p>Get Format</p>
+	<p>Set Format</p>
 	<input id="movieInputFormat" type="text" placeholder="PirateBay torrent title" size="150">
 	<button id="movieButtonFormat" type="button" onclick="alertFormatTest()">Try it!</button>
+
+	<p>Set Year</p>
+	<input id="movieInputYear" type="text" placeholder="PirateBay torrent title" size="150">
+	<button id="movieButtonYear" type="button" onclick="alertYearTest()">Try it!</button>
 
 
 	<script type="text/javascript">
@@ -30,6 +34,14 @@
 			var newMovie = new pirateMovie(titleToTest);
 			var formatToAlert = newMovie.setFormat();
 			alert(formatToAlert);	
+
+		}
+
+		function alertYearTest(){
+			var titleToTest = document.getElementById("movieInputYear").value;
+			var newMovie = new pirateMovie(titleToTest);
+			var yearToAlert = newMovie.setYear();
+			alert(yearToAlert);	
 
 		}
 

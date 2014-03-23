@@ -147,16 +147,19 @@ function pirateMovie(strTitle){
 		return this.strFormat;		
 	}
 
-	this.getYear = function(){
-		//Copy string title to safeguard it
-		var tTitle = this.strOriginalTitle;	
-		//Regex to capture year
+	/* FUCNTION NAM: setYear */
+	/* FUNCTION DEF: Remove the year from the real title and set the attribute */
+	/* FUNCTION PAR: None */
+	/* FUCNTION RET: Year */
+
+	this.setYear = function(){		
+		/* Regex to capture year */
 		var Yrgx = /[\(\.\s](\d{4})[\)\.\s]/;
-		var result = Yrgx.exec(tTitle);
-		result = result[0].replace(/\D/g,"");
+		var arrRgxResult = Yrgx.exec(this.strOriginalTitle);
 
+		/* Remove parentheses from the year */
+		this.strYear = arrRgxResult[0].replace(/\D/g,"");
 
-		this.strYear = result;
-		return result;
+		return this.strYear;
 	}
 }
