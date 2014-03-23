@@ -97,6 +97,9 @@ function pirateMovie(strTitle){
 			}
 		}
 
+		/* remove the year from the string */
+		strTitleToCrop = strTitleToCrop.replace(/[\(\.\s](\d{4})[\)\.\s]/,"");
+
 		/* Remove '.' and replace them with space */
 		strTitleToCrop = strTitleToCrop.split('.').join(' ');
 		/* Trim extra space at the end */
@@ -107,13 +110,7 @@ function pirateMovie(strTitle){
 
 		/* Get the last index of the array since it's used 4 times */
 		var intLastIndexOfSplit = arrSplitedTitleToCrop.length-1;
-
-		/* Test if the last index of the array is  four digits */
-		if(arrSplitedTitleToCrop[intLastIndexOfSplit].match(new RegExp('^\\d{4}$'))){
-			/* Add the actual parenteses on the last index of the array */
-			arrSplitedTitleToCrop[intLastIndexOfSplit] = '('+arrSplitedTitleToCrop[intLastIndexOfSplit]+')';	
-		}
-		
+	
 		/* Rejoin the array togheter, like an old couple, yay */
 		strTitleToCrop = arrSplitedTitleToCrop.join(' ');
 
@@ -148,5 +145,18 @@ function pirateMovie(strTitle){
 
 		/* Return the ogirinal (most likely NA) format if nothing is found */
 		return this.strFormat;		
+	}
+
+	this.getYear = function(){
+		//Copy string title to safeguard it
+		var tTitle = this.strOriginalTitle;	
+		//Regex to capture year
+		var Yrgx = /[\(\.\s](\d{4})[\)\.\s]/;
+		var result = Yrgx.exec(tTitle);
+		result = result[0].replace(/\D/g,"");
+
+
+		this.strYear = result;
+		return result;
 	}
 }
