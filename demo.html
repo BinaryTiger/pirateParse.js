@@ -27,6 +27,10 @@
 	<input id="movieInputSource" type="text" placeholder="PirateBay torrent title" size="150">
 	<button id="movieButtonSource" type="button" onclick="alertSourceTest()">Try it!</button>
 
+	<p>Set All</p>
+	<input id="movieInputAll" type="text" placeholder="PirateBay torrent title" size="150">
+	<button id="movieButtonAll" type="button" onclick="alertAllTest()">Try it!</button>
+
 
 	<script type="text/javascript">
 
@@ -61,8 +65,15 @@
 		function alertSourceTest(){
 			var titleToTest = document.getElementById("movieInputSource").value;
 			var newMovie = new pirateMovie(titleToTest);
-			var SrouceToAlert = newMovie.setSource();
-			alert(SrouceToAlert);	
+			var SourceToAlert = newMovie.setSource();
+			alert(newMovie.strSource);	
+		}
+
+		function alertAllTest(){
+			var titleToTest = document.getElementById("movieInputAll").value;
+			var newMovie = new pirateMovie(titleToTest);
+			var AllToAlert = newMovie.setAll();
+			alert(AllToAlert.RealTitle + ';' + AllToAlert.Year + ';' + AllToAlert.Format + ';' + AllToAlert.ReleaseGroup + ';' + AllToAlert.Source);	
 		}
 
 	</script>

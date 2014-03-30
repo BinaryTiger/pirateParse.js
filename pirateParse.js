@@ -211,5 +211,27 @@ function pirateMovie(strTitle){
 		}
 
 		return this.strSource;
-	}	
+	}
+
+	/* FUCNTION NAM: setAll */
+	/* FUNCTION DEF: Call every set function to parse the original title */
+	/* FUNCTION PAR: None */
+	/* FUCNTION RET: json with all attrivute */
+
+	this.setAll = function(){
+		this.setRealTitle();
+		this.setFormat();
+		this.setYear();
+		this.setReleaseGroup();
+		this.setSource();
+
+		return {
+				"RealTitle": this.strRealTitle, 
+				"Format": this.strFormat, 
+				"Year": this.strYear, 
+				"ReleaseGroup": this.strRealeaseGroup, 
+				"Source": this.strSource}
+	}
+
+
 }
