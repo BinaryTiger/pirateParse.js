@@ -1,3 +1,13 @@
+# Description
+
+A simple pirate bay torrent title parser for the top 100 HD movies.
+
+# Purpose
+
+Beautify [FuuDLer](https://github.com/fuubox/FuuDLer)
+
+# Functions
+
 | Function  		| Definition 	| Parameter		| Return Variable |
 | ---------------- 	| ------------- | ------------- | --------------- |
 | setRealTitle()  	| Crop useless crap of the title and set it to its attribute  | None  | String / the real title  |
@@ -7,3 +17,6 @@
 | setSource() 		| Get the source from the original title and set it to its attribute  | None | String / the source |
 | setAll() 			| Call every set function to parse the original title  | None | JSON / every attributes |
 
+# Demo
+
+Check demo.html
