@@ -15,7 +15,6 @@ Beautify [FuuDLer](https://github.com/fuubox/FuuDLer)
 | setYear() 		| Get the year from the original title and set the attribute | None | String / the year |
 | setReleaseGroup()	| Get the release group from the original title and set it to its attribute  | None | String / the release group  |
 | setSource() 		| Get the source from the original title and set it to its attribute  | None | String / the source |
-| setAll() 			| Call every set function to parse the original title  | None | JSON / every attributes |
 
 # Demo
 
